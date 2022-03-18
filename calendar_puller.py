@@ -58,9 +58,6 @@ def prepare_data(company_name, events):
         row['_begin'] = row['_begin'].time().strftime("%H:%M")
         row['_end_time'] = row['_end_time'].time().strftime("%H:%M")
         row['organizer'] = get_organizer(row['organizer'])
-
-    df.sort_values(by=['start_date', '_begin', 'organizer'], inplace=True, ascending=True)
-    df.drop(df[df['start_date'] < datetime.now().strftime("%d-%m-%Y")].index, inplace=True)
     
     
     # dump outputfile
